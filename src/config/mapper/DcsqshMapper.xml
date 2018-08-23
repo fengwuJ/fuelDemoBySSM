@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.DcsqshMapper">
+
+    <resultMap type="com.model.Dcsqsh" id="DcsqshResultMap">
+        <id column="id" property="id"/>
+        <result column="gysname" property="gysname"/>
+        <result column="time" property="time"/>
+        <result column="sqdw" property="sqdw"/>
+        <result column="splx" property="splx"/>
+        <result column="cz" property="cz"/>
+    </resultMap>
+    
+    <select id="getDcsqshList" resultMap="DcsqshResultMap">
+        select * from dcsqshtable
+    </select>
+    
+    <select id="getDcsqshListByLimit" resultMap="DcsqshResultMap">
+    	select * from dcsqshtable limit #{offset},#{pageSize}
+    </select>
+    
+    <select id="getDcsqshByGysname" resultMap="DcsqshResultMap">
+    	select * from dcsqshtable where gysname = #{gysname}
+    </select>
+</mapper>
